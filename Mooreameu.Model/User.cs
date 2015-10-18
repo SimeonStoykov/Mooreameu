@@ -22,7 +22,7 @@ namespace Mooreameu.Model
             this.ProfilePictures = new HashSet<ProfilePicture>();
         }
 
-        public int ComitteeContestId { get; set; }
+        public int? ComitteeContestId { get; set; }
 
         [ForeignKey("ComitteeContestId")]
         public virtual Contest ComitteeContest { get; set; }
