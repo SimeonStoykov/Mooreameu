@@ -95,6 +95,12 @@ namespace Mooreameu.Data
                     cr.ToTable("RewardsParticipants");
                 });*/
 
+
+            modelBuilder.Entity<User>().HasMany(u => u.ProfilePictures);
+            modelBuilder.Entity<ProfilePicture>().HasRequired(p => p.Owner);
+            modelBuilder.Entity<Reward>().HasKey(r => r.RewardId);
+            modelBuilder.Entity<Contest>().HasRequired(c => c.Reward).WithRequiredPrincipal(r => r.Contest);
+
         }
 
         public static MooreameuDbContext Create()

@@ -27,7 +27,7 @@ namespace Mooreameu.Model
         public int ContestId { get; set; }
 
         [ForeignKey("ContestId")]
-        public Contest Contest { get; set; }
+        public virtual Contest Contest { get; set; }
 
         public DateTime SubmittedOn { get; set; }
 

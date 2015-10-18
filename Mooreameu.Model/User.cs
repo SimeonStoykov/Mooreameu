@@ -19,12 +19,8 @@ namespace Mooreameu.Model
             this.Rewards = new HashSet<Reward>();
             this.Notifications = new HashSet<Notification>();
             this.Pictures = new HashSet<Picture>();
+            this.ProfilePictures = new HashSet<ProfilePicture>();
         }
-
-        public int ProfilePictureId { get; set; }
-
-        [ForeignKey("ProfilePictureId")]
-        public virtual ProfilePicture ProfilePicture { get; set; }
 
         public int ComitteeContestId { get; set; }
 
@@ -33,15 +29,17 @@ namespace Mooreameu.Model
 
         public UserStatus Status { get; set; }
 
-        public ICollection<Picture> Pictures { get; set; }
+        public virtual ICollection<Picture> Pictures { get; set; }
 
-        public ICollection<Contest> CreatedContests { get; set; }
+        public virtual ICollection<ProfilePicture> ProfilePictures { get; set; }
 
-        public ICollection<Contest> ParticipatingInContests { get; set; }
+        public virtual ICollection<Contest> CreatedContests { get; set; }
 
-        public ICollection<Reward> Rewards { get; set; }
+        public virtual ICollection<Contest> ParticipatingInContests { get; set; }
 
-        public ICollection<Notification> Notifications { get; set; } 
+        public virtual ICollection<Reward> Rewards { get; set; }
+
+        public virtual ICollection<Notification> Notifications { get; set; } 
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

@@ -25,6 +25,7 @@ namespace Mooreameu.Model
         public string Description { get; set; }
 
         public string OwnerId { get; set; }
+
         [ForeignKey("OwnerId")]
         public virtual User Owner { get; set; }
 
@@ -43,10 +44,10 @@ namespace Mooreameu.Model
 
         public ParticipationStrategy Participation { get; set; }
 
-        public ICollection<Picture> Pictures { get; set; }
+        public virtual ICollection<Picture> Pictures { get; set; }
 
-        public ICollection<User> Participants { get; set; }
+        public virtual ICollection<User> Participants { get; set; }
 
-        public ICollection<User> Comittee { get; set; } 
+        public virtual ICollection<User> Comittee { get; set; } 
     }
 }
