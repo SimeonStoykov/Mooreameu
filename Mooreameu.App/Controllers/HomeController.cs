@@ -17,19 +17,22 @@ namespace Mooreameu.App.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            var contests = this.Data.Contests.All()
+                .OrderByDescending(c => c.CreatedOn)
+                .Take(5);
+            return View(contests);
         }
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Team Mooremeu.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Contacts";
 
             return View();
         }

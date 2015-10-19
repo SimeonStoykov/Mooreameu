@@ -12,6 +12,8 @@ namespace Mooreameu.Data.UnitOfWork
     {
         IRepository<User> Users { get; }
 
+        IRepository<Contest> Contests {get; }
+
         void SaveChanges();
     }
 }
