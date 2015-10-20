@@ -14,6 +14,14 @@ namespace Mooreameu.Data.UnitOfWork
 
         IRepository<Contest> Contests {get; }
 
+        IRepository<ProfilePicture> ProfilePictures { get; }
+
+        IRepository<Picture> Pictures { get; }
+
+        IRepository<Notification> Notifications { get; }
+
+        IRepository<Reward> Rewards { get; } 
+
         void SaveChanges();
     }
 }

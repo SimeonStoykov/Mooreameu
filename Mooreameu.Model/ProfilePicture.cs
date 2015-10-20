@@ -17,6 +17,8 @@ namespace Mooreameu.Model
 
         public string Path { get; set; }
 
+        public bool Active { get; set; }
+
         public string OwnerId { get; set; }
 
         [ForeignKey("OwnerId")]

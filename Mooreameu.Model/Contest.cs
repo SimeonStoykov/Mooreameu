@@ -15,6 +15,7 @@ namespace Mooreameu.Model
             this.Pictures = new HashSet<Picture>();
             this.Participants = new HashSet<User>();
             this.Comittee = new HashSet<User>();
+            this.Voters = new HashSet<User>();
         }
 
         [Key]
@@ -43,6 +44,8 @@ namespace Mooreameu.Model
         public VotingStrategy Voting { get; set; }
 
         public ParticipationStrategy Participation { get; set; }
+
+        public virtual ICollection<User> Voters { get; set; }
 
         public virtual ICollection<Picture> Pictures { get; set; }
 

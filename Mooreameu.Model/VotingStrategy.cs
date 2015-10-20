@@ -9,6 +9,8 @@ namespace Mooreameu.Model
     public enum VotingStrategy
     {
         Open,
-        Closed
+        OpenSingle,
+        Closed,
+        ClosedSingle
     }
 }
