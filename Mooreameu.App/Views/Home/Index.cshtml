@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Mooreameu.Model.Contest>
+﻿@model IEnumerable<Mooreameu.App.Models.ViewModels.Contests.ContestShortViewModel>
 @{
     ViewBag.Title = "Home";
 }
@@ -12,17 +12,7 @@
 <div class="row">
     <div class="col-md-4">
         <h2>Newest contests</h2>
-        <ul>
-            @{
-                foreach (var contest in Model)
-                {
-                    @:<li><h2>@contest.Title</h2>
-                           <p>@contest.Description</p>      
-                      @:</li>
-                }
-            }
-        </ul>
-
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">View all &raquo;</a></p>
+        @Html.DisplayForModel();
+        <p><a class="btn btn-default" href="~/contests/all">View all &raquo;</a></p>
     </div>
 </div>

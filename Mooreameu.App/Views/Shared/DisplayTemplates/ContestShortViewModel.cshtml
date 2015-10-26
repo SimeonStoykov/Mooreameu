@@ -1,0 +1,9 @@
+﻿@model Mooreameu.App.Models.ViewModels.Contests.ContestShortViewModel
+
+<div class="list-unstyled">
+    <h2>@Model.Title</h2>
+    <span>posted on: @Model.CreatedOn</span>
+    <p>@Model.Description</p>
+    @Html.ActionLink("Details", "ShowContest", "Contests", 
+    new { id = Model.ContestId }, htmlAttributes: new {@class = "btn btn-primary"})
+</div>

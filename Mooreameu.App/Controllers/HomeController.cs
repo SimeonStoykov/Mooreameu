@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Mooreameu.Data.UnitOfWork;
+using AutoMapper;
+using Mooreameu.Model;
+using Mooreameu.App.Models.ViewModels.Contests;
 
 namespace Mooreameu.App.Controllers
 {
@@ -20,7 +23,9 @@ namespace Mooreameu.App.Controllers
             var contests = this.Data.Contests.All()
                 .OrderByDescending(c => c.CreatedOn)
                 .Take(5);
-            return View(contests);
+
+            var contestModels = Mapper.Map<IEnumerable<Contest>, IEnumerable<ContestShortViewModel>>(contests);
+            return View(contestModels);
         }
 
         public ActionResult About()

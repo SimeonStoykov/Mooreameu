@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Mooreameu.Model.Contest>
+
+<h2>All Contests</h2>
+
+@{
+    foreach (var contest in Model)
+    {
+        @:<li>
+            @:<h2>@contest.Title</h2>
+            @:<p>@contest.Description</p>
+        @:</li>
+    }
+}
+
