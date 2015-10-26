@@ -19,5 +19,12 @@
         {
             return View();
         }
+
+        public ActionResult Profile(string id)
+        {
+            //TODO: User profile page and create view!
+
+            return View();
+        }
     }
 }

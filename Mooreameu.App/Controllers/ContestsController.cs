@@ -36,7 +36,7 @@ namespace Mooreameu.App.Controllers
             }
 
             var contestModel = Mapper.Map<Contest, ContestFullVIewModel>(contest);
-            return View();
+            return View(contestModel);
         }
     }
 }

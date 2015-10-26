@@ -7,24 +7,26 @@
     using System;
     using System.Collections.Generic;
 
-    public class ContestFullVIewModel : ContestShortViewModel
+    public class ContestFullVIewModel
     {
         public ContestFullVIewModel()
         {
             this.Pictures = new HashSet<PictureViewModel>();
         }
 
-        public UserShortViewModel Owner { get; set; }
-        
-        public ICollection<PictureViewModel> Pictures { get; set; }
+        public int ContestId { get; set; }
 
         public string Title { get; set; }
 
         public string Description { get; set; }
 
-        public ContestStatus Status { get; set; }
-
         public DateTime CreatedOn { get; set; }
+
+        public UserShortViewModel Owner { get; set; }
+        
+        public ICollection<PictureViewModel> Pictures { get; set; }
+
+        public ContestStatus Status { get; set; }
 
         public RewardViewModel Reward { get; set; }
 

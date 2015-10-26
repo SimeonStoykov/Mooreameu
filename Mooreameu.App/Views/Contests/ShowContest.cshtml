@@ -1,1 +1,8 @@
-﻿<h1>//TODO</h1>
+﻿@model Mooreameu.App.Models.ViewModels.Contests.ContestFullVIewModel
+
+
+<div class="ontainer-fluid">
+    <h1>@Model.Title</h1>
+    <p>@Model.Status</p>
+    @Html.DisplayFor(m => m.Owner)
+</div>
