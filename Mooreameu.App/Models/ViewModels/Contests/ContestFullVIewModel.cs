@@ -23,7 +23,7 @@
         public DateTime CreatedOn { get; set; }
 
         public UserShortViewModel Owner { get; set; }
-        
+
         public ICollection<PictureViewModel> Pictures { get; set; }
 
         public ContestStatus Status { get; set; }
@@ -33,7 +33,7 @@
         public DeadlineStrategy DeadLine { get; set; }
 
         public VotingStrategy Voting { get; set; }
-        
+
         //TODO: Add participants and stuff
     }
 }
