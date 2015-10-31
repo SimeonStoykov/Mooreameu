@@ -7,6 +7,7 @@ using Mooreameu.Data.UnitOfWork;
 using AutoMapper;
 using Mooreameu.Model;
 using Mooreameu.App.Models.ViewModels.Contests;
+using Dropbox.Api;
 
 namespace Mooreameu.App.Controllers
 {

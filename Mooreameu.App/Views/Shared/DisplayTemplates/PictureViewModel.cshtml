@@ -1,0 +1,8 @@
+﻿@model Mooreameu.App.Models.ViewModels.Picture.PictureViewModel
+
+<div class="col-lg-3 col-md-4 col-xs-6 thumb">
+    <a class="thumbnail" href="~/Picture/View/@Model.PictureId">
+        <img class="picture-small img-responsive img-rounded" src=@Model.Path alt="">
+    </a>
+    <span class="glyphicon glyphicon-thumbs-up" style="font-size:20px"> @Model.Votes</span>
+</div>

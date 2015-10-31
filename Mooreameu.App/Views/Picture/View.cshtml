@@ -1,0 +1,31 @@
+﻿@model Mooreameu.App.Models.ViewModels.Picture.PictureViewModel
+    
+    <div class="nav">
+        <h2>@Model.Name</h2>
+        <img src="@Model.Path" alt="Alternate Text" />
+        <p>@Model.Description</p>
+
+        @*<p>posted by @Model.Owner.UserName</p>*@
+
+    </div>
+<div class="nav navbar-btn">
+    @Html.ActionLink("Vote", "Vote",
+        routeValues: new { id = @Model.PictureId },
+        htmlAttributes: new { @class = "btn btn-primary", id = "vote"})
+</div>
+
+<div class="nav navbar-left" >
+    @Html.ActionLink("Previous", "View",
+    routeValues: new { id = @Model.PictureId },
+    htmlAttributes: new {@class = "btn btn-primary" })
+</div>
+
+<div class="nav navbar-right">
+    @Html.ActionLink("next", "View",
+    routeValues: new { id = @Model.PictureId },
+    htmlAttributes: new { @class = "btn btn-primary" })
+</div>
+
+@section scripts{
+
+}

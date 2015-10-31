@@ -60,11 +60,11 @@ namespace Mooreameu.App
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "597679488307-efaroj1bui277grrv377okvl63768nqe.apps.googleusercontent.com",
+                ClientSecret = "8wBsGAJ1-1ntKERsi1quIOrE"
+            });
         }
     }
 }

@@ -1,8 +1,14 @@
 ﻿@model Mooreameu.App.Models.ViewModels.Contests.ContestFullVIewModel
 
 
-<div class="ontainer-fluid">
-    <h1>@Model.Title</h1>
-    <p>@Model.Status</p>
-    @Html.DisplayFor(m => m.Owner)
+<div class="container-fluid">
+    <div class="container">
+        <h1>@Model.Title</h1> <span>Created by</span>
+        @Html.DisplayFor(m => m.Owner) on @Html.DisplayFor(m => m.CreatedOn)
+    </div>
+
+    <p>@Model.Status for voting</p>
+    <p>@Model.Description</p>
+
+    @Html.DisplayFor(m => m.Pictures)
 </div>
