@@ -23,7 +23,8 @@ namespace Mooreameu.App.Controllers
                 .All()
                 .OrderByDescending(c => c.CreatedOn);
 
-            return View(contests);
+            var contestViews = Mapper.Map<IEnumerable<Contest>, IEnumerable<ContestShortViewModel>>(contests);
+            return View(contestViews);
         }
 
         public ActionResult ShowContest(int id)

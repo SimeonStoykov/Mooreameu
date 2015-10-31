@@ -20,6 +20,8 @@ namespace Mooreameu.App.Models.ViewModels.Picture
 
         public int Likes { get; set; }
 
+        public bool HasBeenVoted { get; set; }
+
         public bool IsLast { get; set; }
     }
 }

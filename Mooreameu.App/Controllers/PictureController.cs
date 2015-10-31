@@ -10,6 +10,9 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using AutoMapper;
 using Mooreameu.App.Models.ViewModels.Picture;
+using System.Threading.Tasks;
+using System.IO;
+using System.Text;
 
 namespace Mooreameu.App.Controllers
 {
@@ -23,15 +26,6 @@ namespace Mooreameu.App.Controllers
         {
         }
 
-        public ActionResult Upload()
-        {
-            var user = this.Data.Users.Find(this.User.Identity.GetUserId());
-            using (var client = this.GetClient(user))
-            {
-                return null;
-            }
-        }
-
         public ActionResult View(int id)
         {
             var picture = this.Data.Pictures.Find(id);
@@ -40,15 +34,19 @@ namespace Mooreameu.App.Controllers
             return View(pictureView);
         }
 
-        
-        private DropboxClient GetClient(User user)
+        [Authorize]
+        public ActionResult Vote(int id)
         {
-            var client = new DropboxClient("Evnnh0pkhFAAAAAAAAAABjAWpr4XhVxoajYngqEK2kwZ-KOGq2lFtZtt8oxXuj02",
-                userAgent: "Mooreameu");
+            var userId = this.User.Identity.GetUserId();
+            var user = this.Data.Users.Find(userId);
+            var picture = this.Data.Pictures.Find(id);
+            user.ParticipatingInContests.Add(picture.Contest); 
+            picture.Votes++;
 
-            return client;
+            this.Data.SaveChanges();
+            
+            var pictureView = Mapper.Map<Picture, PictureViewModel>(picture);
+            return View("View", pictureView);
         }
-
-
     }
 }

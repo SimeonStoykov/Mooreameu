@@ -4,11 +4,9 @@
         <h2>@Model.Name</h2>
         <img src="@Model.Path" alt="Alternate Text" />
         <p>@Model.Description</p>
-
-        @*<p>posted by @Model.Owner.UserName</p>*@
-
+        
     </div>
-<div class="nav navbar-btn">
+<div class="nav navbar-btn" >
     @Html.ActionLink("Vote", "Vote",
         routeValues: new { id = @Model.PictureId },
         htmlAttributes: new { @class = "btn btn-primary", id = "vote"})
@@ -25,7 +23,3 @@
     routeValues: new { id = @Model.PictureId },
     htmlAttributes: new { @class = "btn btn-primary" })
 </div>
-
-@section scripts{
-
-}
