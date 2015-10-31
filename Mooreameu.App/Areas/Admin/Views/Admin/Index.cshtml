@@ -1,7 +1,27 @@
 ﻿
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Administration";
 }
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
+<div class="admin-controls">
+    @Ajax.ActionLink("Edit users", "GetUsers", "Admin", new { area = "Admin" }, new AjaxOptions()
+{
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "editor-content"
+}, new { @class = "btn btn-success" })
+@Ajax.ActionLink("Edit Contests", "GetContests", "Admin", new { area = "Admin" }, new AjaxOptions()
+{
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "editor-content"
+}, new { @class = "btn btn-success" })
+</div>
+<div class="col-md-8" id="editor-content"></div>
 
+<script>
+//TODO call ajax to load by default contest    
+</script>    
+
+@section scripts {
+    @Scripts.Render("~/bundles/jquery")
+}

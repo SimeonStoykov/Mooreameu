@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Mooreameu.App.Areas.Admin.Models.UserShortViewModel>
+@{
+    ViewBag.Title = "Registered users";
+}
+
+<h3>@ViewBag.Title</h3>
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.UserName)</th>
+        <th>@Html.DisplayNameFor(m => m.Email)</th>
+        <th>@Html.DisplayNameFor(m => m.Status)</th>
+        <th>Actions</th>
+    </tr>
+    @Html.DisplayForModel()
+</table>

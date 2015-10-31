@@ -14,6 +14,8 @@
             Mapper.CreateMap<Contest, ContestFullVIewModel>();
             Mapper.CreateMap<Contest, ContestShortViewModel>();
             Mapper.CreateMap<User, UserShortViewModel>();
+            Mapper.CreateMap<Contest, Areas.Admin.Models.ContestShortViewModel>();
+            Mapper.CreateMap<User, Areas.Admin.Models.UserShortViewModel>();
         }
     }
 }

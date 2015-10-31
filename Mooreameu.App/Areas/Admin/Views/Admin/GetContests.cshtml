@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Mooreameu.App.Areas.Admin.Models.ContestShortViewModel>
+@{
+    ViewBag.Title = "Contests";
+}
+
+<h3>@ViewBag.Title</h3>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(model => model.Title)</th>
+        <th>@Html.DisplayNameFor(model => model.Status)</th>
+        <th>Actions</th>
+    </tr>
+    @Html.DisplayForModel()
+</table>

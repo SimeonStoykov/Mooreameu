@@ -1,0 +1,13 @@
+﻿@using Mooreameu.Model
+@model Mooreameu.App.Areas.Admin.Models.ContestShortViewModel
+<tr id="@Model.Id">
+    <td><strong>@Model.Title</strong></td>
+    <td>@Model.Status</td>
+    <td>
+    @Html.ActionLink("Edit", "Edit", "Contests", new { area = "Admin", id = Model.Id }, new { @class = "btn-sm btn-info" })
+    @if (Model.Status != ContestStatus.Dismissed)
+    {
+        @Html.ActionLink("Dismiss", "Dismiss", "Contests", new { area = "Admin", id = Model.Id }, new { @class = "btn-sm btn-danger" })
+    }
+    </td>
+</tr>
