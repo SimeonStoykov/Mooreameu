@@ -13,6 +13,11 @@ namespace Mooreameu.App.Areas.Admin.Controllers
         {
         }
 
+        public ActionResult Details()
+        {
+            return null;
+        }
+
         public ActionResult Edit()
         {
             return null;

@@ -9,6 +9,7 @@ using Mooreameu.Data.UnitOfWork;
 namespace Mooreameu.App.Areas.Admin.Controllers
 {
     [Authorize(Roles = "Administrator")]
+    [ValidateInput(false)]
     public class BaseAdminController : BaseController
     {
         public BaseAdminController(IMooreameuData data)

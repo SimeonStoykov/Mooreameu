@@ -1,0 +1,13 @@
+﻿@model Mooreameu.App.Areas.Admin.Models.PictureViewModel
+@{
+    ViewBag.Title = "Confirm you want to delete the picture!";
+}
+
+<h3>@ViewBag.Title</h3>
+<div>
+    <p><img src="@Model.Path" alt="picture-path" /></p>
+    <p>
+        @Html.ActionLink("Confirm", "Delete", "Pictures", new {area = "Admin", id = Model.Id}, new {@class = "btn-sm btn-danger"})
+        @Html.ActionLink("Cancel", "Details", "Contests", new { area = "Admin", id = Model.ContestId }, new { @class = "btn-sm btn-info" })
+    </p>
+</div>

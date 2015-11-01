@@ -5,7 +5,7 @@
     <td>@Model.Email</td>
     <td>@Model.Status</td>
     <td>
-        @Html.ActionLink("Edit", "Edit", "Users", new { area = "Admin", id = Model.Id }, new { @class = "btn-sm btn-info" })
+        @Html.ActionLink("Edit", "Details", "Users", new { area = "Admin", id = Model.Id }, new { @class = "btn-sm btn-info" })
         @if (Model.Status == UserStatus.Ok)
         {
             @Html.ActionLink("Ban", "Ban", "Users", new { area = "Admin", id = Model.Id }, new { @class = "btn-sm btn-warning" })

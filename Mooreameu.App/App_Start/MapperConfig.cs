@@ -14,8 +14,15 @@
             Mapper.CreateMap<Contest, ContestFullVIewModel>();
             Mapper.CreateMap<Contest, ContestShortViewModel>();
             Mapper.CreateMap<User, UserShortViewModel>();
-            Mapper.CreateMap<Contest, Areas.Admin.Models.ContestShortViewModel>();
+            Mapper.CreateMap<Contest, Areas.Admin.Models.ContestShortViewModel>()
+                .ForMember(c => c.Id, config => config.MapFrom(contest => contest.ContestId));
             Mapper.CreateMap<User, Areas.Admin.Models.UserShortViewModel>();
+            Mapper.CreateMap<Contest, Areas.Admin.Models.ContestDetailsView>()
+                .ForMember(c => c.Id, config => config.MapFrom(contest => contest.ContestId))
+                .ForMember(c => c.Owner, config => config.MapFrom(contest => contest.Owner.UserName));
+            Mapper.CreateMap<Picture, Areas.Admin.Models.PictureViewModel>()
+                .ForMember(p => p.Id, config => config.MapFrom(picture => picture.PictureId))
+                .ForMember(p => p.Owner, config => config.MapFrom(picture => picture.Owner.UserName));
         }
     }
 }

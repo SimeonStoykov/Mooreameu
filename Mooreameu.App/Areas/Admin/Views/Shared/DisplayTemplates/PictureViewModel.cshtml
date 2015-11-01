@@ -1,0 +1,25 @@
+﻿@using Mooreameu.Model
+@model Mooreameu.App.Areas.Admin.Models.PictureViewModel
+
+<div class="col-lg-4 col-md-4 col-xs-6 thumb">
+    <p class="thumbnail">
+        <img src="@Model.Path" alt="picture-path" class="img-responsive img-rounded" />
+    </p>
+    <p>Contestant: <strong>@Model.Owner</strong> <span>Status: @Model.Status</span></p>
+    @if (Model.Status == PictureStatus.Ok)
+    {
+        <p>
+            @Ajax.ActionLink("Remove from competition", "Confirm", "Pictures", new {area = "Admin", id = Model.Id}, new AjaxOptions()
+            {
+                InsertionMode = InsertionMode.Replace,
+                UpdateTargetId = "pictures-display"
+            }, new {@class = "btn-sm btn-danger"})
+        </p>
+    }
+    else
+    {
+        <p>
+            @Html.ActionLink("Activate", "Activate", "Pictures", new { area = "Admin", id = Model.Id }, new { @class = "btn-sm btn-warning" })
+        </p>
+    }
+</div>
