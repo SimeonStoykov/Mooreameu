@@ -12,7 +12,7 @@ namespace Mooreameu.App.Areas.Admin
             }
         }
 
-        public override void RegisterArea(AreaRegistrationContext context) 
+        public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
                 "Admin_default",

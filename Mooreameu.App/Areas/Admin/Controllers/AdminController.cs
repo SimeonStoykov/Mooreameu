@@ -21,7 +21,10 @@ namespace Mooreameu.App.Areas.Admin.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            this.HttpContext.Cache.Remove("contestId");
+            var contests = this.Data.Contests.All().OrderByDescending(c => c.CreatedOn);
+            var shortConstestView = Mapper.Map<IEnumerable<Contest>, IEnumerable<ContestShortViewModel>>(contests);
+            return View(shortConstestView);
         }
 
         public ActionResult GetUsers()

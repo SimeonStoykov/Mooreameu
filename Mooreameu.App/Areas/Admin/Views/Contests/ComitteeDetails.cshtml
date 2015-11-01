@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Mooreameu.App.Areas.Admin.Models.UserShortViewModel>
+
+<table class="table">
+    <tr>
+        <th>@Html.DisplayNameFor(m => m.UserName)</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.UserName</td>
+            <td>@Html.ActionLink("Remove from comittee", "RemoveFromComittee", "Contests", new {area = "Admin", contestId = ViewBag.contestId, userId = user.Id}, new {@class = "btn-sm btn-warning"})</td>
+        </tr>
+    }
+</table>

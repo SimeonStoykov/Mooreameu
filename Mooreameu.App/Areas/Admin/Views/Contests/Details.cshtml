@@ -3,7 +3,7 @@
 <div>
     <h4>@Model.Title</h4>
     <hr />
-    <dl class="dl-horizontal col-md-3">
+    <dl class="dl-horizontal col-md-4">
         <dt>
             @Html.DisplayNameFor(model => model.Description)
         </dt>
@@ -28,7 +28,32 @@
             @Html.DisplayFor(model => model.CreatedOn)
         </dd>
         <dt></dt>
-        <dd>@Html.ActionLink("Edit info", "Edit", new {area = "Admin", id = Model.Id}, new {@class = "btn-sm btn-info"})</dd>
+        <dd>
+            <p>
+
+                @Html.ActionLink("Edit info", "Edit", new { area = "Admin", id = Model.Id }, new { @class = "btn-sm btn-info" })
+            </p>
+        </dd>
+        <dt></dt>
+        <dd>
+            <p>
+                @Ajax.ActionLink("Edit comittee", "ComitteeDetails", new { area = "Admin", id = Model.Id }, new AjaxOptions()
+                {
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "pictures-display"
+                }, new { @class = "btn-sm btn-info" })
+            </p>
+        </dd>
+        <dt></dt>
+        <dd>
+            <p>
+                @Ajax.ActionLink("Edit pictures", "GetPictures", new { area = "Admin", id = Model.Id }, new AjaxOptions()
+                {
+                    InsertionMode = InsertionMode.Replace,
+                    UpdateTargetId = "pictures-display"
+                }, new { @class = "btn-sm btn-info" })
+            </p>
+        </dd>
     </dl>
     <div class="col-md-8" id="pictures-display">
         @Html.DisplayFor(m => m.Pictures)
