@@ -1,6 +1,7 @@
 ﻿namespace Mooreameu.App.App_Start
 {
     using AutoMapper;
+    using Mooreameu.App.Areas.User.Models;
     using Mooreameu.App.Models.ViewModels.Contests;
     using Mooreameu.App.Models.ViewModels.Picture;
     using Mooreameu.App.Models.ViewModels.User;
@@ -12,7 +13,9 @@
         {
             Mapper.CreateMap<Picture, PictureViewModel>();
             Mapper.CreateMap<Contest, ContestFullVIewModel>();
+            Mapper.CreateMap<Reward, Mooreameu.App.Models.ViewModels.Reward.RewardViewModel>();
             Mapper.CreateMap<Contest, ContestShortViewModel>();
+            Mapper.CreateMap<ContestBindingModel, Contest>();
             Mapper.CreateMap<User, UserShortViewModel>();
             Mapper.CreateMap<Contest, Areas.Admin.Models.ContestShortViewModel>()
                 .ForMember(c => c.Id, config => config.MapFrom(contest => contest.ContestId));

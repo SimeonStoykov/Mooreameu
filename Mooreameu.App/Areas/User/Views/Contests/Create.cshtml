@@ -1,3 +1,38 @@
-﻿@using( Html.BeginForm("CreateContest","Contests", FormMethod.Post)){
+﻿<form action="~/User/Contests/CreateContest" method="post">
+    <label for="text">Title</label>
+    <input class="form-control" id="text" type="text" name="title" placeholder="Title"/>
     
-}
+    <label for="description">Description</label>
+    <textarea id="description" name="description" class="form-control" rows="3"></textarea>
+
+    <label for="rewardPrice">Reward price</label>
+    <input id="rewardPrice" name="price" class ="form-control" type="number" />
+    
+    <label for="RewardStrategy">Choose the reward stategy</label>
+    <select class="selectpicker" id="RewardStrategy" name="reward">
+        <option value="Single">Single winner</option>
+        <option value="Top3">Top 3 winner</option>
+    </select>
+    
+    <label for="deadlineStrategy">Choose deadline strategy</label>
+    <select id="deadlineStrategy" name="deadline">
+        <option value="EndOnDate">end on date</option>
+        <option value="CountParticipants">Count participants</option>
+    </select>
+
+    <label for="votingStrategy">Choose the voting strategy</label>
+    <select id="votingStrategy" name="voting">
+        <option value="Open">Open for everyone</option>
+        <option value="OpenSingle">Open for everyone but with single vote</option>
+        <option value="Closed">Voting by comitee</option>
+        <option value="ClosedSinge">Voting by comitee but with one vote</option>
+    </select>
+
+    <label for="ParticipationStrategy">choose participation staregy</label>
+    <select id="ParticipationStrategy" name="participationStrategy">
+        <option value="Invitation">Invitate</option>
+        <option value="Open">Open</option>
+    </select>
+
+    <input type="submit" value="Create contest" class="btn btn-info"/>
+</form>
