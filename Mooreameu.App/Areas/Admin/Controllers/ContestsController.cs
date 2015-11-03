@@ -6,10 +6,10 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
 using AutoMapper;
-using Mooreameu.App.Areas.Admin.Models;
 using Mooreameu.App.Extensions;
 using Mooreameu.Data.UnitOfWork;
 using Mooreameu.Model;
+using Mooreameu.App.Models.ViewModels.Reward;
 
 namespace Mooreameu.App.Areas.Admin.Controllers
 {
@@ -84,10 +84,10 @@ namespace Mooreameu.App.Areas.Admin.Controllers
             return null;
         }
 
-        private ContestDetailsView LoadContest(int id)
+        private Mooreameu.App.Areas.Admin.Models.ContestDetailsView LoadContest(int id)
         {
             var contest = this.Data.Contests.Find(id);
-            var contestToShow = Mapper.Map<Contest, ContestDetailsView>(contest);
+            var contestToShow = Mapper.Map<Contest, Mooreameu.App.Areas.Admin.Models.ContestDetailsView>(contest);
             return contestToShow;
         }
     }

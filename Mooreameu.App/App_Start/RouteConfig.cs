@@ -16,6 +16,7 @@ namespace Mooreameu.App
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
+                namespaces: new string[] {"Mooreameu.App.Controllers"},
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
         }

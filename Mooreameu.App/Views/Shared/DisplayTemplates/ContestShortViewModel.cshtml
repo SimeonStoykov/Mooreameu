@@ -5,5 +5,5 @@
     <span>posted on: @Model.CreatedOn</span>
     <p>@Model.Description</p>
     @Html.ActionLink("Details", "ShowContest", "Contests", 
-    new { id = Model.ContestId }, htmlAttributes: new {@class = "btn btn-primary"})
+    new {area = "", id = Model.ContestId}, htmlAttributes: new {@class = "btn btn-primary"})
 </div>

@@ -23,7 +23,7 @@
             Mapper.CreateMap<Picture, Areas.Admin.Models.PictureViewModel>()
                 .ForMember(p => p.Id, config => config.MapFrom(picture => picture.PictureId))
                 .ForMember(p => p.Owner, config => config.MapFrom(picture => picture.Owner.UserName));
-            Mapper.CreateMap<Reward, Areas.Admin.Models.RewardViewModel>()
+            Mapper.CreateMap<Reward, Mooreameu.App.Areas.Admin.Models.RewardViewModel>()
                 .ForMember(r => r.RewardId, config => config.MapFrom(reward => reward.RewardId))
                 .ForMember(r => r.TotalPrize, config => config.MapFrom(reward => reward.TotalPrize))
                 .ForMember(r => r.Type, config => config.MapFrom(reward => reward.Type));
