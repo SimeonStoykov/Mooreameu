@@ -62,6 +62,18 @@ namespace Mooreameu.App.Areas.Admin.Controllers
             return RedirectToAction("Index", "Admin");
         }
 
+        public ActionResult GetReward(int id)
+        {
+            var reward = this.LoadContest(id).Reward;
+            if (reward != null)
+            {
+                var rewardView = Mapper.Map<Reward, RewardViewModel>(reward);
+                return this.PartialView("DisplayReward", rewardView);
+            }
+            this.AddNotification("No reward found", NotificationType.WARNING);
+            return RedirectToAction("GetPictures", "Contests", new { id = id });
+        }
+
         public ActionResult Edit()
         {
             return null;

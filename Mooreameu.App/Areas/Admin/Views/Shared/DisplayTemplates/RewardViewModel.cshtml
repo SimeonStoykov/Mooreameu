@@ -1,0 +1,17 @@
+﻿@model Mooreameu.App.Areas.Admin.Models.RewardViewModel
+
+<table>
+    <tr>
+        <th>Id</th>
+        <th>Total Prize</th>
+        <th>Type</th>
+    </tr>
+    <tr>
+        <td>@Model.RewardId</td>
+        <td>@Model.TotalPrize</td>
+        <td>@Model.Type</td>
+    </tr>
+    <tr>
+        <td>@Html.ActionLink("Edit", "Edit", "Rewards", new {area = "Admin", rewardId = Model.RewardId}, new {@class = "btn-sm btn-info"})</td>
+    </tr>
+</table>
