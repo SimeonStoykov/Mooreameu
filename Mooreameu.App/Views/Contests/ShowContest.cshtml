@@ -10,5 +10,14 @@
     <p>@Model.Status for voting</p>
     <p>@Model.Description</p>
 
+    @if (Model.Voting == Mooreameu.Model.VotingStrategy.Open ||
+        Model.Voting == Mooreameu.Model.VotingStrategy.OpenSingle)
+    {
+        if (!ViewBag.IsParticipating)
+        {
+            @Html.ActionLink("Participate", "Participate", new { id = Model.ContestId }, new { @class = "btn btn-warning" });
+        }
+    }
+
     @Html.DisplayFor(m => m.Pictures)
 </div>
