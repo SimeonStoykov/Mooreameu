@@ -56,7 +56,7 @@ namespace Mooreameu.App.Areas.User.Controllers
             var contest = this.Data.Contests.Find(id);
 
             var contestView = Mapper.Map<Contest, Mooreameu.App.Models.ViewModels.Contests.ContestFullVIewModel>(contest);
-            return View("ShowContest", contestView);
+            return View(contestView);
         }
     }
 }
