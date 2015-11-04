@@ -28,7 +28,7 @@ namespace Mooreameu.App.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int rewardId, RewardViewModel model)
+        public ActionResult Edit(int rewardId, RewardInputModel model)
         {
             var reward = this.Data.Rewards.Find(rewardId);
             if (reward == null)

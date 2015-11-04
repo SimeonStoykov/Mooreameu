@@ -25,10 +25,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.RadioButtonFor(model => model.Type, new { htmlAttributes = new { @class = "form-control single" } })
-                <label for="single">Single winner</label>   
-                @Html.RadioButtonFor(model => model.Type, new { htmlAttributes = new { @class = "form-control top3" } })
-                <label for="top3">Top 3 winners</label>
+                @Html.EnumDropDownListFor(model => model.Type, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
             </div>
         </div>

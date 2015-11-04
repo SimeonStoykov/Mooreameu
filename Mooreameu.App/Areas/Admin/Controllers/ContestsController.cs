@@ -6,10 +6,10 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI;
 using AutoMapper;
+using Mooreameu.App.Areas.Admin.Models;
 using Mooreameu.App.Extensions;
 using Mooreameu.Data.UnitOfWork;
 using Mooreameu.Model;
-using Mooreameu.App.Models.ViewModels.Reward;
 
 namespace Mooreameu.App.Areas.Admin.Controllers
 {
@@ -74,20 +74,60 @@ namespace Mooreameu.App.Areas.Admin.Controllers
             return RedirectToAction("GetPictures", "Contests", new { id = id });
         }
 
-        public ActionResult Edit()
+        [HttpGet]
+        public ActionResult Edit(int id)
         {
-            return null;
+            var contest = this.LoadContest(id);
+            return View(contest);
         }
 
-        public ActionResult Dismiss()
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, ContestInputModel model)
         {
-            return null;
+            var contest = this.LoadContest(id);
+            if (contest == null)
+            {
+                this.AddNotification("Cannot find contest", NotificationType.WARNING);
+                return RedirectToAction("Index", "Admin");
+            }
+
+            if (model != null && this.ModelState.IsValid)
+            {
+                contest.DeadLine = model.DeadLine;
+                contest.Title = model.Title;
+                contest.Description = model.Description;
+                contest.Participation = model.Participation;
+                contest.Status = model.Status;
+                contest.Voting = model.Voting;
+                this.Data.SaveChanges();
+                this.AddNotification("Successfully updated contest", NotificationType.INFO);
+            }
+            else
+            {
+                this.AddNotification("Wrong data", NotificationType.WARNING);
+            }
+
+            return RedirectToAction("Index", "Admin");
         }
 
-        private Mooreameu.App.Areas.Admin.Models.ContestDetailsView LoadContest(int id)
+        public ActionResult Dismiss(int id)
         {
             var contest = this.Data.Contests.Find(id);
-            var contestToShow = Mapper.Map<Contest, Mooreameu.App.Areas.Admin.Models.ContestDetailsView>(contest);
+            if (contest != null)
+            {
+                this.Data.SaveChanges();
+                this.AddNotification("Successfully dismissed contest", NotificationType.SUCCESS);
+                return RedirectToAction("Index", "Admin", new { area = "Admin" });
+            }
+            this.AddNotification("Cannot find contest", NotificationType.WARNING);
+            return RedirectToAction("Index", "Admin", new { area = "Admin"});
+        }
+
+        private ContestDetailsView LoadContest(int id)
+        {
+            var contest = this.Data.Contests.Find(id);
+            var contestToShow = Mapper.Map<Contest, ContestDetailsView>(contest);
             return contestToShow;
         }
     }
