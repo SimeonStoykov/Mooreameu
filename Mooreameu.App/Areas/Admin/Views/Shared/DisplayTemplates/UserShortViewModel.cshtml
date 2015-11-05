@@ -5,14 +5,17 @@
     <td>@Model.Email</td>
     <td>@Model.Status</td>
     <td>
-        @Html.ActionLink("Edit", "Details", "Users", new { area = "Admin", id = Model.Id }, new { @class = "btn-sm btn-info" })
-        @if (Model.Status == UserStatus.Ok)
+        @if (Model.Status == UserStatus.Banned)
         {
-            @Html.ActionLink("Ban", "Ban", "Users", new { area = "Admin", id = Model.Id }, new { @class = "btn-sm btn-warning" })
+            @Html.ActionLink("Activate", "UnBan", "Users", new { area = "Admin", id = Model.Id }, new { @class = "btn-sm btn-info" })
+        }
+        @if (Model.Status == UserStatus.Ok && Model.Status != UserStatus.Deleted)
+        {
+            @Html.ActionLink("Ban", "Ban", "Users", new {area = "Admin", id = Model.Id}, new {@class = "btn-sm btn-warning"})
         }
         @if (Model.Status != UserStatus.Deleted)
         {
-            @Html.ActionLink("Delete", "Delete", "Users", new { area = "Admin", id = Model.Id }, new { @class = "btn-sm btn-danger" })
+            @Html.ActionLink("Delete", "Delete", "Users", new {area = "Admin", id = Model.Id}, new {@class = "btn-sm btn-danger"})
         }
     </td>
 </tr>   

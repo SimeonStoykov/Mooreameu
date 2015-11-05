@@ -116,6 +116,7 @@ namespace Mooreameu.App.Areas.Admin.Controllers
             var contest = this.Data.Contests.Find(id);
             if (contest != null)
             {
+                contest.Status = ContestStatus.Dismissed;
                 this.Data.SaveChanges();
                 this.AddNotification("Successfully dismissed contest", NotificationType.SUCCESS);
                 return RedirectToAction("Index", "Admin", new { area = "Admin" });

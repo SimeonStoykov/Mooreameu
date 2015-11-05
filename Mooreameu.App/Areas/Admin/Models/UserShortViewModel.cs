@@ -12,6 +12,8 @@ namespace Mooreameu.App.Areas.Admin.Models
 
         public string UserName { get; set; }
 
+        public string Password { get; set; }
+
         public string Email { get; set; }
 
         public UserStatus Status { get; set; }
